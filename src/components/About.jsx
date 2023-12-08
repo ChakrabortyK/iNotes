@@ -1,15 +1,8 @@
-import { React, useContext, useEffect } from "react";
-import initContext from "../context/notes/initContext"
+import { React } from "react";
+// import initContext from "../context/notes/initContext"
 
 const About = () => {
-  const a = useContext(initContext);
-  useEffect(() => {
-    a.update()
-
-  }, [])
-
-  // console.log(a)
-  return <div>{a.first.key} About {a.first.value}</div>;
+  return <div>About</div>;
 };
 
 export default About;

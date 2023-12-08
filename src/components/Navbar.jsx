@@ -1,9 +1,12 @@
 // import PropTypes from 'prop-types'
-import React from 'react'
-import { Link } from "react-router-dom";
+// eslint-disable-next-line
+import React, { useEffect } from 'react'
+import { Link, useLocation } from "react-router-dom";
 
 
 const Navbar = () => {
+
+  let location = useLocation();
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top bg-light">
@@ -15,10 +18,10 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item mx-2">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item mx-2">
-              <Link className="nav-link" aria-current="page" to="/about">About</Link>
+              <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">About</Link>
             </li>
 
 
