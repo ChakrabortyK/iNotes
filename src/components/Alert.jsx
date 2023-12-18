@@ -1,13 +1,17 @@
 import React from 'react'
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 
-function Alert(props) {
+
+const AlertCustom = (props) => {
     return (
-        <div style={{ height: '5vh' }}>
-            {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
-                <strong>  {props.alert.strong}  </strong>{props.alert.msg}
-            </div>}
+        <div className='container' style={{ height: '5vh' }}>
+            {props.alert && <Alert severity={props.alert.type}>
+                <AlertTitle>{props.alert.msg}</AlertTitle>
+                <strong>{props.alert.strong}</strong>
+            </Alert>}
         </div>
     )
 }
 
-export default Alert
+export default AlertCustom

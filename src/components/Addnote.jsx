@@ -10,7 +10,7 @@ const Addnote = () => {
     const handleClick = (event) => {
         event.preventDefault();
         addNote(note)
-        setnote({ title: "", description: "", tag: "" })
+        // setnote({ title: "", description: "", tag: "" })
     }
     const onChange = (event) => {
         setnote({ ...note, [event.target.name]: event.target.value })

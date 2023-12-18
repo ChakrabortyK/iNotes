@@ -19,8 +19,9 @@ const TestState = (props) => {
         const jsonData = await response.json();
         // console.log(jsonData)
         let updatedNotes = JSON.parse(JSON.stringify(notes))
-        updatedNotes.push(jsonData)
+        updatedNotes.push(jsonData.notes)
         setNotes(updatedNotes)
+        // console.log(notes)
     }
 
     //EDIT A NOTE
@@ -77,7 +78,8 @@ const TestState = (props) => {
 
         const jsonData = await response.json();
         // console.log(jsonData)
-        setNotes(jsonData)
+        setNotes(jsonData.notes)
+
     }
 
 

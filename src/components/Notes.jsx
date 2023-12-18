@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import initContext from "../context/notes/initContext";
 import NotesItem from "./NoteItem";
+
+
 // import EditNote from './EditNote';
 
 function Notes() {
@@ -12,17 +14,15 @@ function Notes() {
 
     useEffect(() => {
         getAllNotes()
+
         // eslint-disable-next-line
     }, [])
-
     const handleClick = () => {
         editNote(note.id, note.etitle, note.edescription, note.etag)
     }
     const updateNote = (currentNote) => {
         setnote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
     }
-
-
     const onChange = (event) => {
         setnote({ ...note, [event.target.name]: event.target.value })
     }
@@ -60,6 +60,8 @@ function Notes() {
                 </div>
             </div>
         </div>
+
+
         <div className="row my-5">
             <h2>Your Notes</h2>
             <div className="container mx-2">
