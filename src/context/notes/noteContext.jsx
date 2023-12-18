@@ -17,11 +17,10 @@ const TestState = (props) => {
             body: JSON.stringify({ title: note.title, description: note.description, tag: note.tag }),
         });
         const jsonData = await response.json();
-        // console.log(jsonData)
-        let updatedNotes = JSON.parse(JSON.stringify(notes))
-        updatedNotes.push(jsonData.notes)
+        let updatedNotes = await JSON.parse(JSON.stringify(notes))
+        updatedNotes.push(jsonData.note)
         setNotes(updatedNotes)
-        // console.log(notes)
+        // console.log({ updatednotes: updatedNotes, notes: notes })
     }
 
     //EDIT A NOTE

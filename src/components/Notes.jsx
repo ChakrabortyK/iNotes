@@ -14,7 +14,6 @@ function Notes() {
 
     useEffect(() => {
         getAllNotes()
-
         // eslint-disable-next-line
     }, [])
     const handleClick = () => {
