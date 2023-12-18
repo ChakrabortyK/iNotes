@@ -5,10 +5,10 @@ import Addnote from "./Addnote";
 
 
 
-export const Home = () => {
+export const Home = (props) => {
   return <div className="container">
-    <Addnote />
-    <Notes />
+    <Addnote showAlert={props.showAlert} />
+    <Notes showAlert={props.showAlert} />
   </div>
 };
 export default Home;

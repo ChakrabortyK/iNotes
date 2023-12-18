@@ -37,7 +37,7 @@ const App = () => {
                 <AlertCustom alert={alert} />
                 <br />
                 <br />
-                <Home />
+                <Home showAlert={showAlert} />
               </>
             }
           />

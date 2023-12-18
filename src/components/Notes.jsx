@@ -5,7 +5,7 @@ import NotesItem from "./NoteItem";
 
 // import EditNote from './EditNote';
 
-function Notes() {
+function Notes(props) {
     // eslint-disable-next-line
     const { notes, getAllNotes, editNote } = useContext(initContext);
 
@@ -18,9 +18,11 @@ function Notes() {
     }, [])
     const handleClick = () => {
         editNote(note.id, note.etitle, note.edescription, note.etag)
+        props.showAlert("info", note.etitle, " is Updated")
     }
     const updateNote = (currentNote) => {
         setnote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
+
     }
     const onChange = (event) => {
         setnote({ ...note, [event.target.name]: event.target.value })
@@ -66,7 +68,7 @@ function Notes() {
             <div className="container mx-2">
                 {notes.length === 0 && "No Notes to display LOL..."}
             </div>
-            {notes.map((note) => { return <NotesItem key={note._id} className="card-title" updateNote={updateNote} note={note} /> })}
+            {notes.map((note) => { return <NotesItem key={note._id} className="card-title" updateNote={updateNote} showAlert={props.showAlert} note={note} /> })}
         </div>
     </>
     )
