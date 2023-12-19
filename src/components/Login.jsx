@@ -25,11 +25,9 @@ const Login = (props) => {
         // console.log(jsonData)
         if (jsonData.success) {
             // Save the auth token and redirect
-            localStorage.setItem('token', jsonData.authtoken);
-            navigate("/");
-            // console.log(jsonData.message)
+            localStorage.setItem('token', jsonData.token);
             props.showAlert("success", jsonData.message, "Logged In")
-            // setAlert = true
+            navigate("/");
         }
         else {
             props.showAlert("warning", jsonData.message, "Invalid Email Or Password")

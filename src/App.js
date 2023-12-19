@@ -26,7 +26,7 @@ const App = () => {
   return (
     <>
       <TestState>
-        <Navbar />
+        <Navbar showAlert={showAlert} />
         <div className='container my-3'></div>
         <Routes basename='/iNoteBook'>
           <Route
@@ -35,7 +35,6 @@ const App = () => {
             element={
               <>
                 <AlertCustom alert={alert} />
-                <br />
                 <br />
                 <Home showAlert={showAlert} />
               </>

@@ -1,12 +1,19 @@
 // import PropTypes from 'prop-types'
 // eslint-disable-next-line
 import React, { useEffect } from 'react'
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+  let navigate = useNavigate();
 
   let location = useLocation();
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    navigate("/login")
+    props.showAlert("success", "Logged Out Successfully", "Login or signup to continue")
+
+  }
 
   return (
     <nav className="navbar navbar-expand-lg sticky-top bg-light">
@@ -26,8 +33,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="btn-group" role="group" aria-label="Basic outlined example">
-          <Link className="btn btn-outline-primary" to="/login" role="button">Login</Link>
-          <Link className="btn btn-outline-primary" to="/signup" role="button">Sign Up</Link>
+          {localStorage.getItem('token') === null || localStorage.getItem('token') === 'undefined' ? <>
+            <Link className="btn btn-outline-primary" to="/login" role="button">Login</Link>
+            <Link className="btn btn-outline-primary" to="/signup" role="button">Sign Up</Link>
+          </> : <a className="btn btn-outline-primary" href='/' onClick={handleLogout} role="button">Logout</a>
+          }
+
         </div>
       </div>
     </nav>

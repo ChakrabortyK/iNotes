@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import initContext from "../context/notes/initContext";
 import NotesItem from "./NoteItem";
+import { useNavigate } from 'react-router-dom'
+
 
 
 // import EditNote from './EditNote';
@@ -8,14 +10,24 @@ import NotesItem from "./NoteItem";
 function Notes(props) {
     // eslint-disable-next-line
     const { notes, getAllNotes, editNote } = useContext(initContext);
-
     const [note, setnote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
+    let navigate = useNavigate();
 
 
     useEffect(() => {
-        getAllNotes()
+        let token = localStorage.getItem("token");
+        // console.log(token)
+        if (!token || token === "undefined") {
+            // console.log({ token: localStorage.getItem('token') })
+            navigate('/login');
+            props.showAlert("error", "You are not logged in", "Please login to continue")
+        } else {
+            getAllNotes();
+            // console.log({ token: localStorage.getItem('token') })
+        }
         // eslint-disable-next-line
-    }, [])
+    }, []);
+
     const handleClick = () => {
         editNote(note.id, note.etitle, note.edescription, note.etag)
         props.showAlert("info", note.etitle, " is Updated")
@@ -28,7 +40,10 @@ function Notes(props) {
         setnote({ ...note, [event.target.name]: event.target.value })
     }
 
+
+
     return (<>
+
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -65,10 +80,14 @@ function Notes(props) {
 
         <div className="row my-5">
             <h2>Your Notes</h2>
-            <div className="container mx-2">
-                {notes.length === 0 && "No Notes to display LOL..."}
-            </div>
-            {notes.map((note) => { return <NotesItem key={note._id} className="card-title" updateNote={updateNote} showAlert={props.showAlert} note={note} /> })}
+            {localStorage.getItem("token") ? (
+                <div className="container mx-2">
+                    {Array.isArray(notes) && notes.length === 0 && "No Notes to display LOL..."}
+                </div>
+            ) : (
+                <p className="container mx-2">Login to see your notes.</p>
+            )}
+            {Array.isArray(notes) && notes.map((note) => { return <NotesItem key={note._id} className="card-title" updateNote={updateNote} showAlert={props.showAlert} note={note} /> })}
         </div>
     </>
     )
