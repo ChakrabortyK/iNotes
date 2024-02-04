@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/iNotes/static/css/main.b40c3f27.css",
-    "main.js": "/iNotes/static/js/main.70978e59.js",
+    "main.js": "/iNotes/static/js/main.bfa2901a.js",
     "index.html": "/iNotes/index.html",
     "main.b40c3f27.css.map": "/iNotes/static/css/main.b40c3f27.css.map",
-    "main.70978e59.js.map": "/iNotes/static/js/main.70978e59.js.map"
+    "main.bfa2901a.js.map": "/iNotes/static/js/main.bfa2901a.js.map"
   },
   "entrypoints": [
     "static/css/main.b40c3f27.css",
-    "static/js/main.70978e59.js"
+    "static/js/main.bfa2901a.js"
   ]
 }
