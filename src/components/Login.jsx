@@ -5,7 +5,6 @@ import AlertCustom from './Alert'
 
 
 const Login = (props) => {
-    const host = "http://localhost:5000"
     let navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({ email: '', password: '' })
@@ -13,7 +12,7 @@ const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`${host}/api/auth/login`, {
+        const response = await fetch(`/api/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

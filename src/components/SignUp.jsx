@@ -12,14 +12,13 @@ import {
     from 'mdb-react-ui-kit';
 
 function Signup(props) {
-    const host = "http://localhost:5000"
     let navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({ name: '', email: '', password: '' })
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`${host}/api/auth/signup`, {
+        const response = await fetch(`/api/auth/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

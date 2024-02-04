@@ -3,12 +3,11 @@ import { useState } from 'react'
 import initContext from './initContext'
 
 const TestState = (props) => {
-    const host = "http://localhost:5000"
     const [notes, setNotes] = useState([])
 
     //ADD A NOTE
     const addNote = async (note) => {
-        const response = await fetch(`${host}/api/notes/new`, {
+        const response = await fetch(`/api/notes/new`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +25,7 @@ const TestState = (props) => {
     //EDIT A NOTE
     const editNote = async (id, title, description, tag) => {
 
-        await fetch(`${host}/api/notes/update/${id}`, {
+        await fetch(`/api/notes/update/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +52,7 @@ const TestState = (props) => {
     //DLETE A NOTE
     const deleteNote = async (id) => {
 
-        await fetch(`${host}/api/notes/delete/${id}`, {
+        await fetch(`/api/notes/delete/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -67,7 +66,7 @@ const TestState = (props) => {
 
     //GET ALL NOTES
     const getAllNotes = async () => {
-        const response = await fetch(`${host}/api/notes/allnotesjwt`, {
+        const response = await fetch(`/api/notes/allnotesjwt`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

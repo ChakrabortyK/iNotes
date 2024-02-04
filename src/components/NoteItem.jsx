@@ -11,8 +11,8 @@ const NoteItem = (props) => {
                 <div className="card-body">
                     <div className="d-flex align-items-center">
                         <h5 className="card-title">{note.title}</h5>
-                        <i className="fa-solid fa-circle-minus" onClick={() => { deleteNote(note._id); props.showAlert("error", note.title, "Deleted!") }}></i>
-                        <i className="fa-solid fa-file-pen mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => { updateNote(note) }}></i>
+                        <i className="fa-solid fa-circle-minus mx-2" onClick={() => { deleteNote(note._id); props.showAlert("error", note.title, "Deleted!") }}></i>
+                        <i className="fa-solid fa-file-pen " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => { updateNote(note) }}></i>
                     </div>
                     <p className="card-text">{note.description}.</p>
                 </div>
