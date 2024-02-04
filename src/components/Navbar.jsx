@@ -25,7 +25,7 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item mx-2">
-              <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current="page" to="/">Home</Link>
+              <Link className={`nav-link ${location.pathname === '/iNotes' ? 'active' : ''}`} aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item mx-2">
               <Link className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} aria-current="page" to="/about">About</Link>
@@ -36,7 +36,7 @@ const Navbar = (props) => {
           {localStorage.getItem('token') === null || localStorage.getItem('token') === 'undefined' ? <>
             <Link className="btn btn-outline-primary" to="/login" role="button">Login</Link>
             <Link className="btn btn-outline-primary" to="/signup" role="button">Sign Up</Link>
-          </> : <a className="btn btn-outline-primary" href='/' onClick={handleLogout} role="button">Logout</a>
+          </> : <a className="btn btn-outline-primary" href='/iNotes' onClick={handleLogout} role="button">Logout</a>
           }
 
         </div>

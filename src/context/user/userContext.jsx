@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import initContext from '../notes/initContext'
 
-const response = await fetch(`${host}/api/notes/login`, {
+const response = await fetch(`/api/notes/login`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -10,5 +10,5 @@ const response = await fetch(`${host}/api/notes/login`, {
     },
     body: JSON.stringify({ email: credentials.email, password: credentials.password }),
 });
-const jsonData = await response.json();
-console.log(jsonData)
+// const jsonData = await response.json();
+// console.log(jsonData)

@@ -28,7 +28,7 @@ const App = () => {
       <TestState>
         <Navbar showAlert={showAlert} />
         <div className='container my-3'></div>
-        <Routes basename='/iNoteBook'>
+        <Routes basename='/'>
           <Route
             exact
             path='/'

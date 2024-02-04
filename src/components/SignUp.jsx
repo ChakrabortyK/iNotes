@@ -22,6 +22,7 @@ function Signup(props) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                // "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmI3ZGM1NDVhZmMxOTYxNDA1MGZjYiIsImlhdCI6MTcwMTcxOTYyOH0.IREKF9PoMHcCyoVQyKpLtQC7xPZ692fE-Obahc3XMAk"
             },
             body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password }),
         });
@@ -29,7 +30,7 @@ function Signup(props) {
 
         if (jsonData.success) {
             localStorage.setItem("token", jsonData.token)
-            navigate("/")
+            navigate("/iNotes")
             props.showAlert("success", jsonData.message, "Sign Up Complete")
         } else {
             props.showAlert("warning", jsonData.message, "Unable To SignUp")
